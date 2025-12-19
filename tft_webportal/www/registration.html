@@ -1,0 +1,139 @@
+{% from "frappe/templates/includes/avatar_macro.html" import avatar %}
+{% extends "templates/web.html" %}
+
+{% block title %}
+	{{ _("RFT Registration") }}
+{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block page_content %}
+<section class="tft-register">
+	<div id="particles-js"></div>
+	<div class="wrap">
+		<div class="header">
+			<span class="eyebrow">{{ _("TFT Web Portal") }}</span>
+			<h1>{{ _("Register your access to the new portal") }}</h1>
+			<p class="subhead">
+				{{ _("Create your account to track orders, manage teams, and get a dedicated support dashboard.") }} {{
+				_("We use this info to tailor your workspace setup.") }}
+			</p>
+		</div>
+
+		<div class="grid">
+			<form class="card stack" method="post" action="#">
+				<div class="registration-fields stack">
+					<div class="split">
+					<div class="field">
+						<label for="first_name">{{ _("First name") }}</label>
+						<input id="first_name" name="first_name" type="text" placeholder="{{ _('Maya') }}" required />
+					</div>
+					<div class="field">
+						<label for="last_name">{{ _("Last name") }}</label>
+						<input id="last_name" name="last_name" type="text" placeholder="{{ _('Patel') }}" required />
+					</div>
+					</div>
+
+					<div class="split">
+					<div class="field">
+						<label for="email">{{ _("Email") }}</label>
+						<input
+							id="email"
+							name="email"
+							type="email"
+							placeholder="{{ _('maya@tftlogistics.com') }}"
+							required
+						/>
+						<small class="field-message" data-email-status></small>
+					</div>
+					<div class="field">
+						<label for="phone">{{ _("Phone") }}</label>
+						<input id="phone" name="phone" type="tel" placeholder="{{ _('+971 50 123 4567') }}" required />
+					</div>
+					</div>
+
+				<div class="split">
+					<div class="field">
+						<label for="company">{{ _("Company") }}</label>
+						<input id="company" name="company" type="text" placeholder="{{ _('TFT Logistics') }}" required />
+					</div>
+					<div class="field">
+						<label for="language">{{ _("Preferred language") }}</label>
+						<select id="language" name="language" required>
+							<option value="">{{ _("Select language") }}</option>
+							<option value="en">{{ _("English") }}</option>
+							<option value="fr">{{ _("French") }}</option>
+						</select>
+					</div>
+				</div>
+
+					<div class="consent">
+					<input id="terms" name="terms" type="checkbox" required />
+					<label for="terms">
+						{{ _("I agree to the Terms of Service and would like to receive updates about new portal
+						features.") }}
+					</label>
+					</div>
+
+					<div class="actions">
+					<button class="btn btn-sm btn-primary primary" type="submit">{{ _("Create account") }}</button>
+					<a class="btn btn-sm secondary" href="/login">{{ _("Already have an account?") }}</a>
+					</div>
+
+					<div class="footer-note">{{ _("Demo-ready: placeholders use sample data for quick previews.") }}</div>
+				</div>
+
+				<div class="otp-fields stack is-hidden">
+					<div class="field">
+						<label for="otp_code">{{ _("Email verification code") }}</label>
+						<input
+							id="otp_code"
+							name="otp_code"
+							type="text"
+							placeholder="{{ _('Enter the 6-digit code') }}"
+							autocomplete="one-time-code"
+							disabled
+						/>
+					</div>
+					<p class="footer-note">{{ _("We sent a code to your email. Enter it to verify your account.") }}</p>
+					<p class="footer-note" data-resend-timer>
+						{{ _("Resend available in") }} <span data-resend-seconds>60</span>s
+					</p>
+					<p class="footer-note is-hidden" data-resend-ready>
+						{{ _("Didn’t receive a code? You can resend now.") }}
+					</p>
+					<div class="actions">
+						<button class="btn btn-sm btn-primary primary" type="button" data-action="verify-otp">
+							{{ _("Verify code") }}
+						</button>
+						<button class="btn btn-sm btn-primary secondary is-hidden" type="button" data-action="resend-otp">
+							{{ _("Resend code") }}
+						</button>
+						<button class="btn btn-sm btn-primary secondary" type="button" data-action="edit-details">
+							{{ _("Edit details") }}
+						</button>
+					</div>
+				</div>
+
+				<div class="verification-status stack is-hidden" data-verification-status>
+					<div class="status-card status-success is-hidden" data-status-success>
+						<h2>{{ _("Verification successful") }}</h2>
+						<p>
+							{{ _("Your account has been created, and a password reset email has been sent to your email address.") }}
+						</p>
+					</div>
+					<div class="status-card status-error is-hidden" data-status-error>
+						<h2>{{ _("Verification failed") }}</h2>
+						<p>{{ _("The verification code doesn't match. Please try again.") }}</p>
+					</div>
+				</div>
+			</form>
+
+
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block script %}
+	<script>{% include "templates/includes/registration.js" %}</script>
+{% endblock %}
