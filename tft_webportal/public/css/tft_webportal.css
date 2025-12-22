@@ -315,6 +315,49 @@ body,
 	color: var(--ink);
 }
 
+.tft-sidebar {
+	padding: 24px;
+}
+
+.tft-sidebar .sidebar-card {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	padding: 16px;
+	box-shadow: var(--shadow);
+	display: grid;
+	gap: 10px;
+}
+
+.tft-sidebar .sidebar-head {
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	font-size: 12px;
+	color: var(--muted);
+}
+
+.tft-sidebar .sidebar-link {
+	color: var(--accent-2);
+	text-decoration: none;
+	padding: 8px 10px;
+	border-radius: 10px;
+	border: 1px solid transparent;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.tft-sidebar .sidebar-link:hover {
+	border-color: var(--line);
+	background: var(--surface-2);
+}
+
+.tft-sidebar .sidebar-link::after {
+	content: "→";
+	color: var(--accent);
+	font-size: 12px;
+}
+
 .tft-transport .wrap {
 	max-width: 1100px;
 	margin: 0 auto;
