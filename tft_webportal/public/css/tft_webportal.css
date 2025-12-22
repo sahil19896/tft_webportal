@@ -315,8 +315,19 @@ body,
 	color: var(--ink);
 }
 
+#page-transportation_request.container {
+	max-width: 100%;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+
+#page-transportation_request .page-content-wrapper {
+	padding-left: 0;
+	padding-right: 0;
+}
+
 .tft-sidebar {
-	padding: 24px;
+	padding: 32px 20px;
 }
 
 .tft-sidebar .sidebar-card {
@@ -359,7 +370,7 @@ body,
 }
 
 .tft-transport .wrap {
-	max-width: 1100px;
+	max-width: 1400px;
 	margin: 0 auto;
 	padding: 0 24px;
 }
@@ -1035,17 +1046,20 @@ html {
 
 .container {
 	width: 100%;
+	max-width: 90% !important;
 }
 
 @media (min-width: 640px) {
 	.container {
 		max-width: 640px;
+		max-width: 90% !important;
 	}
 }
 
 @media (min-width: 768px) {
 	.container {
 		max-width: 768px;
+		max-width: 90% !important;
 	}
 }
 
@@ -1058,12 +1072,14 @@ html {
 @media (min-width: 1280px) {
 	.container {
 		max-width: 1536px;
+		max-width: 90% !important;
 	}
 }
 
 @media (min-width: 1536px) {
 	.container {
 		max-width: 1620px;
+		max-width: 90% !important;
 	}
 }
 
