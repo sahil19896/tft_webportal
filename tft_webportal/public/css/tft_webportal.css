@@ -550,6 +550,10 @@ input.input-with-feedback.form-control {
 	box-shadow: 0 8px 20px rgba(18, 23, 20, 0.06);
 }
 
+.tft-transport .is-hidden {
+	display: none;
+}
+
 .tft-transport .section-head {
 	display: inline-flex;
 	align-items: center;

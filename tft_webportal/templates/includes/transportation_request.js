@@ -123,7 +123,6 @@ frappe.ready(() => {
 		multiToggle.addEventListener("change", () => {
 			const enabled = multiToggle.checked;
 			if (singleAddress) {
-				console.log(singleAddress);
 				singleAddress.classList.toggle("is-hidden", enabled);
 			}
 			if (multiAddress) {
