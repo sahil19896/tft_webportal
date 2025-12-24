@@ -33,6 +33,7 @@ web_include_css = "/assets/tft_webportal/css/tft_webportal.css"
 web_include_js = [
 	"/assets/tft_webportal/js/tft_webportal.js",
 	"/assets/tft_webportal/js/tft_particles.js",
+	# "https://maps.googleapis.com/maps/api/js?key=AIzaSyDTO_ahca5PuAOs76Lpr40VuBKnHXkLuNI&libraries=places&callback=initAutocomplete"
 ]
 
 # include custom scss in every website theme (without file extension ".scss")

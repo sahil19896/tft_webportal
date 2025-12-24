@@ -1,17 +1,11 @@
 frappe.ready(() => {
 	const rows = document.getElementById("vehicle-rows");
 	const addBtn = document.querySelector("[data-add-vehicle-row]");
-	const addressRows = document.getElementById("address-rows");
-	const addAddressBtn = document.querySelector("[data-add-address-row]");
-	const multiToggle = document.getElementById("multi_address");
-	const singleAddress = document.querySelector("[data-single-address]");
-	const multiAddress = document.querySelector("[data-multi-address]");
 	if (!rows || !addBtn) {
 		return;
 	}
 
 	let rowIndex = rows.children.length;
-	let addressIndex = addressRows ? addressRows.children.length : 0;
 
 	function buildCell(name, type = "text", placeholder = "") {
 		const td = document.createElement("td");
@@ -26,6 +20,28 @@ frappe.ready(() => {
 			input.placeholder = placeholder || "1";
 		}
 		td.appendChild(input);
+		return td;
+	}
+
+	function buildSelectCell(name, options, defaultValue = null) {
+		const td = document.createElement("td");
+		const select = document.createElement("select");
+
+		select.name = name;
+
+		options.forEach(opt => {
+			const option = document.createElement("option");
+			option.value = opt.value;
+			option.textContent = opt.label;
+
+			if (defaultValue !== null && opt.value === defaultValue) {
+				option.selected = true;
+			}
+
+			select.appendChild(option);
+		});
+
+		td.appendChild(select);
 		return td;
 	}
 
@@ -44,13 +60,12 @@ frappe.ready(() => {
 	addBtn.addEventListener("click", () => {
 		rowIndex += 1;
 		const tr = document.createElement("tr");
-		tr.appendChild(buildCell(`vehicle_qty_${rowIndex}`, "number", "1"));
-		tr.appendChild(buildCell(`vehicle_number_${rowIndex}`));
-		tr.appendChild(buildCell(`vin_${rowIndex}`));
-		tr.appendChild(buildCell(`make_model_${rowIndex}`));
-		tr.appendChild(buildCell(`description_${rowIndex}`));
-		tr.appendChild(buildCell(`plate_${rowIndex}`));
-		tr.appendChild(buildCell(`hitch_${rowIndex}`));
+		tr.appendChild(buildCell(`vin_${rowIndex}`, "text", "1C3CCBAB5EN125414"));
+		tr.appendChild(buildCell(`vehicle_number_${rowIndex}`, "text", "4521909"));
+		tr.appendChild(buildCell(`make_model_${rowIndex}`, "text", "2014 Chrysler 200"));
+		tr.appendChild(buildCell(`description_${rowIndex}`, "text", "Car"));
+		tr.appendChild(buildCell(`plate_${rowIndex}`, "text", "CTET844"));
+		tr.appendChild(buildSelectCell(`hitch_${rowIndex}`, [{ label: "No", value: "No" }, { label: "Yes", value: "Yes" }], "No"));
 		tr.appendChild(buildRemoveCell());
 		rows.appendChild(tr);
 	});
@@ -72,62 +87,4 @@ frappe.ready(() => {
 		}
 		row.remove();
 	});
-
-	function buildAddressRow(index) {
-		const tr = document.createElement("tr");
-		const typeTd = document.createElement("td");
-		const select = document.createElement("select");
-		select.name = `addr_type_${index}`;
-		select.innerHTML = `
-			<option value="from">From</option>
-			<option value="to">To</option>
-		`;
-		typeTd.appendChild(select);
-		tr.appendChild(typeTd);
-		tr.appendChild(buildCell(`addr_company_${index}`, "text", "Company"));
-		tr.appendChild(buildCell(`addr_address_${index}`, "text", "Address"));
-		tr.appendChild(buildCell(`addr_contact_${index}`, "text", "Contact"));
-		tr.appendChild(buildCell(`addr_gate_${index}`, "text", "Code"));
-		tr.appendChild(buildRemoveCell());
-		return tr;
-	}
-
-	if (addAddressBtn && addressRows) {
-		addAddressBtn.addEventListener("click", () => {
-			addressIndex += 1;
-			addressRows.appendChild(buildAddressRow(addressIndex));
-		});
-	}
-
-	if (addressRows) {
-		addressRows.addEventListener("click", (event) => {
-			const btn = event.target.closest("[data-remove-address-row], .row-remove");
-			if (!btn) {
-				return;
-			}
-			const row = btn.closest("tr");
-			if (!row) {
-				return;
-			}
-			if (addressRows.children.length <= 1) {
-				row.querySelectorAll("input, select").forEach((input) => {
-					input.value = "";
-				});
-				return;
-			}
-			row.remove();
-		});
-	}
-
-	if (multiToggle) {
-		multiToggle.addEventListener("change", () => {
-			const enabled = multiToggle.checked;
-			if (singleAddress) {
-				singleAddress.classList.toggle("is-hidden", enabled);
-			}
-			if (multiAddress) {
-				multiAddress.classList.toggle("is-hidden", !enabled);
-			}
-		});
-	}
 });

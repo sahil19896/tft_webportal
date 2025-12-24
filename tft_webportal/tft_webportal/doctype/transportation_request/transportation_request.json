@@ -1,0 +1,156 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-23 15:05:33.988203",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "supplier_info_section",
+  "supplier",
+  "p_o_number",
+  "date",
+  "column_break_gsuo",
+  "business_unit_name",
+  "contact_name",
+  "contact_phone",
+  "section_break_zsvf",
+  "available_pickup_date",
+  "delivery_required_by",
+  "column_break_yqgx",
+  "quantity",
+  "location_of_keys",
+  "section_break_ecbo",
+  "addresses",
+  "section_break_ukjx",
+  "vehicle"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier_info_section",
+   "fieldtype": "Section Break",
+   "label": "Supplier Info"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "p_o_number",
+   "fieldtype": "Data",
+   "label": "P O Number"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_gsuo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "supplier.company",
+   "fieldname": "business_unit_name",
+   "fieldtype": "Data",
+   "label": "Business Unit Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier.full_name",
+   "fieldname": "contact_name",
+   "fieldtype": "Data",
+   "label": "Contact Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier.phone",
+   "fieldname": "contact_phone",
+   "fieldtype": "Data",
+   "label": "Contact Phone #",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_zsvf",
+   "fieldtype": "Section Break",
+   "label": "Tranportation Info"
+  },
+  {
+   "fieldname": "available_pickup_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Available Pickup Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "delivery_required_by",
+   "fieldtype": "Date",
+   "label": "Delivery Required by",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_yqgx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "label": "Quantity of Vehicles"
+  },
+  {
+   "fieldname": "location_of_keys",
+   "fieldtype": "Data",
+   "label": "Location of Keys"
+  },
+  {
+   "fieldname": "section_break_ecbo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "addresses",
+   "fieldtype": "Table",
+   "label": "Addresses",
+   "options": "Transportation Request Address"
+  },
+  {
+   "fieldname": "section_break_ukjx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Table",
+   "label": "Vehicle",
+   "options": "Transportation Request Vehicle"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-23 15:05:33.988203",
+ "modified_by": "Administrator",
+ "module": "Tft Webportal",
+ "name": "Transportation Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
