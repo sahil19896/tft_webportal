@@ -10,9 +10,9 @@
 {% block page_sidebar %}
 <div class="tft-sidebar">
 	<div class="sidebar-card">
-		<div class="sidebar-head">{{ _("Quick Links") }}</div>
-		<a class="sidebar-link" href="/transportation_request">{{ _("Transportation Request") }}</a>
-		<a class="sidebar-link" href="/me">{{ _("My Profile") }}</a>
+		<!-- <div class="sidebar-head">{{ _("Quick Links") }}</div> -->
+		<a class="sidebar-link active" href="/transportation_request">{{ _("Transportation Request") }}</a>
+		<a class="sidebar-link" href="/me">{{ _("My Account") }}</a>
 	</div>
 </div>
 {% endblock %}
@@ -134,11 +134,11 @@
 					<div class="grid-2">
 						<div class="field">
 							<label for="from_start_hour">{{ _("Start Working Hours") }}</label>
-							<input id="from_start_hour" name="from_start_hour" type="text" placeholder="{{ _('0900') }}" />
+							<input id="from_start_hour" name="from_start_hour" type="time" placeholder="{{ _('0900') }}" />
 						</div>
 						<div class="field">
 							<label for="from_end_hour">{{ _("End Working Hours") }}</label>
-							<input id="from_end_hour" name="from_end_hour" type="text" placeholder="{{ _('1700') }}" />
+							<input id="from_end_hour" name="from_end_hour" type="time" placeholder="{{ _('1700') }}" />
 						</div>
 					</div>
 					<div class="field">
@@ -165,11 +165,11 @@
 					<div class="grid-2">
 						<div class="field">
 							<label for="to_start_hour">{{ _("Start Working Hours") }}</label>
-							<input id="to_start_hour" name="to_start_hour" type="text" placeholder="{{ _('0900') }}" />
+							<input id="to_start_hour" name="to_start_hour" type="time" placeholder="{{ _('0900') }}" />
 						</div>
 						<div class="field">
 							<label for="to_end_hour">{{ _("End Working Hours") }}</label>
-							<input id="to_end_hour" name="to_end_hour" type="text" placeholder="{{ _('1700') }}" />
+							<input id="to_end_hour" name="to_end_hour" type="time" placeholder="{{ _('1700') }}" />
 						</div>
 					</div>
 					<div class="field">
@@ -277,16 +277,14 @@
 
 		function initAutocomplete() {
 			const from_address = document.getElementById("from_address");
-			from_autocomplete = new google.maps.places.Autocomplete(from_address, {
-				types: ["address"],
-			});
+			from_autocomplete = new google.maps.places.Autocomplete(from_address, {types: ["address"],});
+			from_autocomplete.setComponentRestrictions({country: ["us", "ca"],})
 			from_autocomplete.addListener("place_changed", fromonPlaceChanged);
 
 			/* ------------- to address ------------ */
 			const to_address = document.getElementById("to_address");
-			to_autocomplete = new google.maps.places.Autocomplete(to_address, {
-				types: ["address"],
-			});
+			to_autocomplete = new google.maps.places.Autocomplete(to_address, {types: ["address"],});
+			to_autocomplete.setComponentRestrictions({country: ["us", "ca"],});
 			to_autocomplete.addListener("place_changed", toonPlaceChanged);
 		}
 

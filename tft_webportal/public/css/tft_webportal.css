@@ -445,8 +445,14 @@ input.input-with-feedback.form-control {
 	padding-right: 0;
 }
 
+a.sidebar-link.active {
+	background: #eaf4ed;
+	color: var(--accent);
+	font-weight: 600;
+}
+
 .tft-sidebar {
-	padding: 32px 20px;
+	padding: 30px 0px;
 	position: sticky;
 	top: 20px;
 	align-self: start;
@@ -455,7 +461,7 @@ input.input-with-feedback.form-control {
 .tft-sidebar .sidebar-card {
 	background: var(--surface);
 	border: 1px solid var(--line);
-	border-radius: 16px;
+	border-radius: 6px;
 	padding: 16px;
 	box-shadow: var(--shadow);
 	display: grid;
@@ -486,7 +492,7 @@ input.input-with-feedback.form-control {
 }
 
 .tft-sidebar .sidebar-link::after {
-	content: "→";
+	content: "";
 	color: var(--accent);
 	font-size: 12px;
 }
@@ -542,7 +548,7 @@ input.input-with-feedback.form-control {
 
 .tft-transport .section-card {
 	border: 1px solid var(--line);
-	border-radius: 18px;
+	border-radius: 6px;
 	padding: 20px;
 	background: var(--surface);
 	display: grid;
@@ -616,7 +622,7 @@ input.input-with-feedback.form-control {
 	inset: 0;
 	background: #e5e7eb;
 	border: 1px solid var(--line);
-	border-radius: 999px;
+	border-radius: 6px;
 	transition: background 0.2s ease, border 0.2s ease;
 }
 
@@ -658,7 +664,7 @@ input.input-with-feedback.form-control {
 .tft-transport textarea {
 	border: 1px solid var(--line);
 	background: var(--surface);
-	border-radius: 12px;
+	border-radius: 6px;
 	padding: 12px 14px;
 	font-size: 14px;
 	transition: border 0.2s ease, box-shadow 0.2s ease;
@@ -673,7 +679,7 @@ input.input-with-feedback.form-control {
 
 .tft-transport .table-wrap {
 	border: 1px solid var(--line);
-	border-radius: 16px;
+	border-radius: 6px;
 	overflow: auto;
 	background: var(--surface);
 }
@@ -702,7 +708,7 @@ input.input-with-feedback.form-control {
 .tft-transport .transport-table input {
 	width: 100%;
 	border: 1px solid var(--line);
-	border-radius: 10px;
+	border-radius: 6px;
 	padding: 8px 10px;
 	font-size: 13px;
 }
@@ -710,7 +716,7 @@ input.input-with-feedback.form-control {
 .tft-transport .transport-table select {
 	width: 100%;
 	border: 1px solid var(--line);
-	border-radius: 10px;
+	border-radius: 6px;
 	padding: 8px 10px;
 	font-size: 13px;
 	background: var(--surface);
@@ -725,7 +731,7 @@ input.input-with-feedback.form-control {
 	border: 1px solid var(--line);
 	background: #fff5f5;
 	color: #991b1b;
-	border-radius: 10px;
+	border-radius: 6px;
 	width: 32px;
 	height: 32px;
 	font-size: 16px;
@@ -752,7 +758,7 @@ input.input-with-feedback.form-control {
 #page-me .account-info {
 	background: var(--surface);
 	border: 1px solid var(--line);
-	border-radius: 18px;
+	border-radius: 6px;
 	box-shadow: var(--shadow);
 	padding: 12px;
 	gap: 8px;
@@ -760,7 +766,7 @@ input.input-with-feedback.form-control {
 
 #page-me .account-info > .col {
 	background: var(--surface-2);
-	border-radius: 14px;
+	border-radius: 6px;
 	padding: 16px 18px;
 }
 
@@ -820,7 +826,7 @@ input.input-with-feedback.form-control {
 #page-me .web-sidebar {
 	background: var(--surface);
 	border: 1px solid var(--line);
-	border-radius: 16px;
+	border-radius: 6px;
 	padding: 16px;
 	box-shadow: var(--shadow);
 }
