@@ -1,0 +1,103 @@
+{% from "frappe/templates/includes/avatar_macro.html" import avatar %}
+{% extends "templates/web.html" %}
+
+{% block title %}
+	{{ _("Transportation Request") }}
+{% endblock %}
+{% set show_sidebar = 1 %}
+{% set sidebar_columns = 3 %}
+
+{% block page_sidebar %}
+<div class="tft-sidebar">
+	<div class="sidebar-card">
+		<!-- <div class="sidebar-head">{{ _("Quick Links") }}</div> -->
+		<a class="sidebar-link" href="/transportation_request">{{ _("Transportation Request") }}</a>
+		<a class="sidebar-link active" href="/job_list">{{ _("Transportation Request List") }}</a>
+		<a class="sidebar-link" href="/me">{{ _("My Account") }}</a>
+	</div>
+</div>
+{% endblock %}
+
+{% set full_width = 1 %}
+
+{% block page_content %}
+<section class="tft-jobs">
+	<div class="wrap">
+		<div class="header">
+			<span class="eyebrow">{{ _("Transportation Requests") }}</span>
+			<h1>{{ _("My Requests") }}</h1>
+			<p class="subhead">{{ _("Track your submitted transportation requests and their current status.") }}</p>
+		</div>
+
+		<div class="card stack">
+			<div class="card-head">
+				<h2>{{ _("Recent Requests") }}</h2>
+				<div class="card-actions">
+					<button class="btn btn-sm btn-primary" type="button">{{ _("Load more") }}</button>
+				</div>
+			</div>
+			<div class="filters">
+				<div class="field">
+					<label for="filter_status">{{ _("Status") }}</label>
+					<select id="filter_status" name="filter_status">
+						<option value="">{{ _("All") }}</option>
+						<option value="in_progress">{{ _("In Progress") }}</option>
+						<option value="confirmed">{{ _("Confirmed") }}</option>
+						<option value="completed">{{ _("Completed") }}</option>
+					</select>
+				</div>
+				<div class="field">
+					<label for="filter_pickup">{{ _("Pickup address") }}</label>
+					<input id="filter_pickup" name="filter_pickup" type="text" placeholder="{{ _('Search pickup') }}" />
+				</div>
+				<div class="field">
+					<label for="filter_delivery">{{ _("Delivery address") }}</label>
+					<input id="filter_delivery" name="filter_delivery" type="text" placeholder="{{ _('Search delivery') }}" />
+				</div>
+			</div>
+			<div class="job-table">
+				<div class="job-row job-head">
+					<div>{{ _("Request ID") }}</div>
+					<div>{{ _("Date") }}</div>
+					<div>{{ _("Pickup") }}</div>
+					<div>{{ _("Delivery") }}</div>
+					<div>{{ _("Vehicles") }}</div>
+					<div>{{ _("Status") }}</div>
+					<div></div>
+				</div>
+				<div class="job-row">
+					<div>#TR-2041</div>
+					<div>Mar 12, 2025</div>
+					<div>1171 Pioneer Rd, Burlington</div>
+					<div>998 Wilson Ave, Kitchener</div>
+					<div>3</div>
+					<div><span class="status-pill status-in-progress">{{ _("In Progress") }}</span></div>
+					<div><a class="row-link" href="#">{{ _("View") }}</a></div>
+				</div>
+				<div class="job-row">
+					<div>#TR-2037</div>
+					<div>Mar 10, 2025</div>
+					<div>Toronto, ON</div>
+					<div>Montreal, QC</div>
+					<div>1</div>
+					<div><span class="status-pill status-confirmed">{{ _("Confirmed") }}</span></div>
+					<div><a class="row-link" href="#">{{ _("View") }}</a></div>
+				</div>
+				<div class="job-row">
+					<div>#TR-2029</div>
+					<div>Mar 05, 2025</div>
+					<div>Ottawa, ON</div>
+					<div>Kingston, ON</div>
+					<div>2</div>
+					<div><span class="status-pill status-completed">{{ _("Completed") }}</span></div>
+					<div><a class="row-link" href="#">{{ _("View") }}</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block script %}
+	
+{% endblock %}
