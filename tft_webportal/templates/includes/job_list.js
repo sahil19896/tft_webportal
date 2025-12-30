@@ -10,7 +10,7 @@ frappe.ready(() => {
 	const statusSelect = document.getElementById("filter_status");
 	const pickupInput = document.getElementById("filter_pickup");
 	const deliveryInput = document.getElementById("filter_delivery");
-	const rows = Array.from(document.querySelectorAll(".job-table .job-row")).filter(
+	const rows = Array.from(document.querySelectorAll(".job-table .job-body .job-row")).filter(
 		(row) => !row.classList.contains("job-head")
 	);
 
