@@ -41,8 +41,8 @@
 					<label for="filter_status">{{ _("Status") }}</label>
 					<select id="filter_status" name="filter_status">
 						<option value="">{{ _("All") }}</option>
-						<option value="pending">{{ _("Pending") }}</option>
-						<option value="confirmed">{{ _("Confirmed") }}</option>
+						<option value="unassigned">{{ _("Unassigned") }}</option>
+						<option value="assigned">{{ _("Assigned") }}</option>
 						<option value="completed">{{ _("Completed") }}</option>
 					</select>
 				</div>
@@ -79,7 +79,12 @@
 						</div>
 					{% else %}
 						<div class="job-row">
+							<div></div>
+							<div></div>
 							<div>{{ _("No transportation requests found.") }}</div>
+							<div></div>
+							<div></div>
+							<div></div>
 						</div>
 					{% endfor %}
 				</div>
