@@ -33,7 +33,7 @@
 			<div class="card-head">
 				<h2>{{ _("Recent Requests") }}</h2>
 				<div class="card-actions">
-					<button class="btn btn-sm btn-primary" type="button">{{ _("Load more") }}</button>
+					<button class="btn btn-sm btn-primary load-more" type="button">{{ _("Load more") }}</button>
 				</div>
 			</div>
 			<div class="filters">
@@ -65,21 +65,24 @@
 					<div>{{ _("Status") }}</div>
 					<div></div>
 				</div>
-				{% for c, a in enumerate(jobs, start=1) %}
-					<div class="job-row" data-status="{{a.status | lower}}" data-pickup="{{a.from_address}}" data-delivery="{{a.to_address}}">
-						<div>{{c}}</div>
-						<div>{{a.date}}</div>
-						<div>{{a.from_address}}</div>
-						<div>{{a.to_address}}</div>
-						<div>{{ a.vehicles }}</div>
-						<div><span class="status-pill status-{{ a.status | lower }}">{{ a.status }}</span></div>
-						<div><a class="row-link btn" href="/transportation_request?request={{a.name}}&view=1">{{ _("View") }}</a></div>
-					</div>
-				{% else %}
-					<div class="job-row">
-						<p>{{ _("No transportation requests found.") }}</p>
-					</div>
-				{% endfor %}
+				<!-- Job rows will be dynamically added here -->
+				<div class='job-body'>
+					{% for c, a in enumerate(jobs, start=1) %}
+						<div class="job-row" data-status="{{a.status | lower}}" data-pickup="{{a.from_address}}" data-delivery="{{a.to_address}}">
+							<div>{{c}}</div>
+							<div>{{a.date}}</div>
+							<div>{{a.from_address}}</div>
+							<div>{{a.to_address}}</div>
+							<div>{{ a.vehicles }}</div>
+							<div><span class="status-pill status-{{ a.status | lower }}">{{ a.status }}</span></div>
+							<div><a class="row-link btn" href="/transportation_request?request={{a.name}}&view=1">{{ _("View") }}</a></div>
+						</div>
+					{% else %}
+						<div class="job-row">
+							<div>{{ _("No transportation requests found.") }}</div>
+						</div>
+					{% endfor %}
+				</div>
 			</div>
 		</div>
 	</div>
