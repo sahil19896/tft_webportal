@@ -62,6 +62,11 @@ frappe.ready(() => {
 		const observer = new MutationObserver(applyFilters);
 		observer.observe(rowsContainer, { childList: true });
 	}
+
+	/* ---------------- fetch initial jobs ---------------- */
+	$(".add-new").click(function () {
+		window.location.href = "/transportation_request";
+	});
 });
 
 function fetchJobs(limit) {
